@@ -1,0 +1,12 @@
+{
+  "item.lurniture.coin": "Coin",
+  "item.lurniture.stack_of_coins": "Stack of Coins",
+  "item.lurniture.flippable_coin": "Flippable Coin",
+
+  "block.lurniture.block_of_coins": "Block of Coins",
+
+  "creativemodetab.lurniture_tab": "Lurniture",
+
+  "output.lurniture.heads": "Heads",
+  "output.lurniture.tails": "Tails"
+}

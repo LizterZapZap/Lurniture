@@ -1,6 +1,10 @@
 package com.lizter.lurniture;
 
+import com.lizter.lurniture.block.ModBlocks;
+import com.lizter.lurniture.item.ModCreativeModeTabs;
+import com.lizter.lurniture.item.ModItems;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -22,6 +26,10 @@ public class Lurniture
 
     public Lurniture() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -31,6 +39,12 @@ public class Lurniture
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == ModCreativeModeTabs.LURNITURE_TAB) {
+            event.accept(ModItems.COIN);
+            event.accept(ModItems.STACK_OF_COINS);
+            event.accept(ModItems.FLIPPABLE_COIN);
+            event.accept(ModBlocks.BLOCK_OF_COINS);
+        }
     }
 
     @SubscribeEvent
